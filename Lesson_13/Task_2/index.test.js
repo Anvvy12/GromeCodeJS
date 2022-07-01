@@ -1,6 +1,6 @@
-import { getSquareArray, getAddNumbers } from "./index.js";
+import { getSquareArray } from "./app.js";
 
-it("square Array", () => {
+it("jest", () => {
   const result = getSquareArray([1, 2, 3]);
-  expect(result).toEquals([1, 4, 9]);
+  expect(result).toEqual([1, 4, 9]);
 });
