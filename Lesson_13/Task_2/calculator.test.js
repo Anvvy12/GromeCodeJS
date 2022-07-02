@@ -1,12 +1,12 @@
-import getSum, { getSquareArray, getOddNumbrs } from "./calculator.js";
+import getSum, { getSquaredArray, getOddNumbers } from "./calculator.js";
 
 it("Square Array", () => {
-  const result = getSquareArray([1, 2, 3]);
-  expect(result).toEqual([1, 4, 9]);
+  const result = getSquaredArray([1, 2, 3, 4]);
+  expect(result).toEqual([1, 4, 9, 16]);
 });
 
 it("Odd Numbers", () => {
-  const result = getOddNumbrs([1, 2, 3, 4, 5]);
+  const result = getOddNumbers([1, 2, 3, 4, 5]);
   expect(result).toEqual([1, 3, 5]);
 });
 
