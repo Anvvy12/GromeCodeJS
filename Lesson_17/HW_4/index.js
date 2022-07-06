@@ -7,7 +7,7 @@ const user = {
   },
   setFullName(name) {
     const nameArray = name.split(" ");
-    [user.firstName, user.lastName] = nameArray;
+    [this.firstName, this.lastName] = nameArray;
   },
 };
 
