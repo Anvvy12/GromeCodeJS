@@ -70,7 +70,7 @@ console.log(usersArray);
 
 console.log(usersArray.getUserNames());
 console.log(usersArray.getUserIds());
-console.log(usersArray.getUserNameById("4"));
+console.log(usersArray.getUserNameById("1"));
 
 // // получить свойства можем
 // console.log(user.id); // ===> '1'
@@ -78,7 +78,7 @@ console.log(usersArray.getUserNameById("4"));
 // console.log(user.sessionId); // ===> 'session-id'
 // //--------
 // user.id = "12344";
-// user.name = "Mark";
+// user1.name = "Mark";
 // user.sessionId = "1344434444";
 // console.log("--------------------");
 // console.log(user.id); // ===> '1'
