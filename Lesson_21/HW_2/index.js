@@ -5,7 +5,7 @@ export function getItemsList() {
 }
 
 export function getItemsArray() {
-  const toolPseodoArray = document.querySelectorAll(".technology");
+  const toolPseodoArray = document.querySelectorAll(".tool");
   const elementsArray = Array.from(toolPseodoArray);
   console.dir(elementsArray);
   return elementsArray;
