@@ -6,4 +6,4 @@ export function setButton(buttonText) {
   //   dockBodyV2.textContent = `<button> ${buttonText} </button>`;
 }
 // Test data
-// setButton("buttonText");
+setButton("button text");
