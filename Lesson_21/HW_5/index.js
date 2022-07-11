@@ -3,7 +3,7 @@ export function setButton(buttonText) {
   dockBody.innerHTML = `<button> ${buttonText} </button>`;
 
   //   const dockBodyV2 = document.querySelector("body");
-  //   dockBodyV2.textContent = `<button> ${buttonText} </button>`;
+  //   dockBody.textContent = `<button> ${buttonText} </button>`;
 }
 // Test data
 setButton("button text");
