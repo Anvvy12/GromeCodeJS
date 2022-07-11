@@ -17,7 +17,7 @@ export function getPlans() {
 }
 export function getGoal() {
   const goal = document.querySelector(".goal");
-  const returnedGoalText = goal.innerHTML;
+  const returnedGoalText = goal.outerHTML;
   return returnedGoalText;
 }
 console.log(getTitle());
