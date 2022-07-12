@@ -4,7 +4,8 @@ export function getSection(num) {
     return "Wrong input!";
   }
   const fouderSpan = document.querySelector(`span[data-number="${num}"]`);
-  return fouderSpan.closest(".box");
+  const motherDiv = fouderSpan.closest(".box");
+  return motherDiv.dataset.section;
 }
 // test data
 // console.log(getSection("1"));
