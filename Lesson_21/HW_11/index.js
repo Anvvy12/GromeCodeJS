@@ -1,7 +1,6 @@
 export function squaredNumbers() {
   const listPseudoArray = document.querySelectorAll(".number");
-  const listArray = Array.from(listPseudoArray);
-  listArray.map((listItem) =>
+  Array.from(listPseudoArray).map((listItem) =>
     listItem.setAttribute(
       "data-squared-number",
       listItem.dataset.number * listItem.dataset.number
