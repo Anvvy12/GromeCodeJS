@@ -1,6 +1,11 @@
 const arrBtn = Array.from(document.querySelectorAll(".btn"));
-
-function handleClick(btnArray) {}
 const [btnJs, btnHtml] = arrBtn;
-btnJs.addEventListener("click", () => console.log(btnJs.textContent));
-btnHtml.addEventListener("click", () => console.log(btnHtml.textContent));
+
+function showText(event) {
+  console.log(event.target.textContent);
+}
+
+const letMeSee = showText.bind(null);
+
+btnJs.addEventListener("click", letMeSee);
+btnHtml.addEventListener("click", letMeSee);
