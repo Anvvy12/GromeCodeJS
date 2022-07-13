@@ -2,7 +2,7 @@ const arrBtn = Array.from(document.querySelectorAll(".pagination__page"));
 const [firstBtn, secondBtn, thirdBtn] = arrBtn;
 
 function showText(event) {
-  console.log(event.target.dataset);
+  console.log(event.target.getAttribute("data-page-number"));
 }
 
 const letMeSee = showText.bind(null);
