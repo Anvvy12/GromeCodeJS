@@ -1,8 +1,8 @@
-const input = document.querySelector(".search__input");
 const LogBtn = document.querySelector(".search__btn");
 
-const inputText = input.addEventListener("change", () =>
-  console.log(input.value)
-);
+function outputText() {
+  const input = document.querySelector(".search__input");
+  input.addEventListener("change", () => console.log(input.value));
+}
 
-LogBtn.addEventListener.bind(null, "click", inputText);
+LogBtn.addEventListener.bind("click", outputText());
