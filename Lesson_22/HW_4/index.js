@@ -5,4 +5,4 @@ const inputText = input.addEventListener("change", () =>
   console.log(input.value)
 );
 
-LogBtn.addEventListener("click", inputText());
+LogBtn.addEventListener("click", inputText);
