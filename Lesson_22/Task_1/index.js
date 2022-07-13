@@ -57,3 +57,5 @@ removeBtn.addEventListener("click", lockBtn);
 
 const attach = attachFunc.bind(null);
 attachBtn.addEventListener("click", attach);
+
+attach();
