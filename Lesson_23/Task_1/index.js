@@ -3,6 +3,8 @@
 // const formFields = [...new FormData(formElem)];
 // // formFields => [["email", "значение поля email"], ["password", "значение поля password"]]
 
+// const { fieldEnds } = require("tar");
+
 // const formData = formFields.reduce(function (acc, formField) {
 //   const prop = formField[0]; // здесь "name" инпута
 //   const value = formField[1]; // здесь "value" инпута
@@ -29,25 +31,42 @@ const isRequired = (value) => (value ? undefined : "Required");
 const isEmail = (value) =>
   value.includes("@") ? undefined : "Should be an email";
 
-// const onEmail
+const validatorByFiled = {
+  email: [isRequired, isEmail],
+  password: [isRequired],
+};
 
-const onEmailChange = (value) => {
-  const errorText = [isRequired, isEmail]
-    .map((validator) => validator(value.target.value))
+const valide = (fildName, value) => {
+  const validators = validatorByFiled[fildName];
+  return validators
+    .map((validator) => validator(value))
     .filter((errorText) => errorText)
     .join(", ");
+};
 
+const onEmailChange = (event) => {
+  const errorText = valide("email", event.target.value);
   emailErrorElem.textContent = errorText;
 };
 
-const onPasswordChange = (value) => {
-  const errorText = [isRequired]
-    .map((validator) => validator(value.target.value))
-    .filter((errorText) => errorText)
-    .join(", ");
-
+const onPasswordChange = (event) => {
+  const errorText = valide("password", event.target.value);
   passwordErrorElem.textContent = errorText;
 };
 
 emailInputElem.addEventListener("input", onEmailChange);
 passwordInputElem.addEventListener("input", onPasswordChange);
+
+const loginForm = document.querySelector(".login-form");
+
+const onFormSubmit = (event) => {
+  event.preventDefault();
+  const formData = [...new FormData(loginForm)].reduce(
+    (acc, [field, value]) => ({ ...acc, [field]: value }),
+    {}
+  );
+
+  alert(JSON.stringify(formData));
+};
+
+loginForm.addEventListener("submit", onFormSubmit);
