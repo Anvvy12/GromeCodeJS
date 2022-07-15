@@ -1,24 +1,27 @@
 let tasks = [
-  { text: "Buy milk", done: false },
-  { text: "Pick up Tom from airport", done: false },
-  { text: "Visit party", done: false },
-  { text: "Visit doctor", done: true },
-  { text: "Buy meat", done: true },
+  { id: 1, text: "Buy milk", done: false },
+  { id: 2, text: "Pick up Tom from airport", done: false },
+  { id: 3, text: "Visit party", done: false },
+  { id: 4, text: "Visit doctor", done: true },
+  { id: 5, text: "Buy meat", done: true },
 ];
 
 const listElem = document.querySelector(".list");
 const listItemElem = document.createElement("li");
-let Id = 0;
+
+const taskInput = document.querySelector(".task-input");
+const addTaskBtn = document.querySelector(".create-task-btn");
+const checkbox = document.querySelectorAll(".list__item-checkbox");
 
 const renderTasks = (tasksList) => {
   const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
-    .map(({ text, done, id }) => {
+    .map(({ id, text, done }, index) => {
       const listItemElem = document.createElement("li");
       listItemElem.classList.add("list__item");
       const checkbox = document.createElement("input");
       checkbox.setAttribute("type", "checkbox");
-      checkbox.setAttribute("data-id", `${(Id += 1)}`);
+      checkbox.setAttribute("data-id", id);
       checkbox.checked = done;
       checkbox.classList.add("list__item-checkbox");
       if (done) {
@@ -34,22 +37,6 @@ const renderTasks = (tasksList) => {
 
 renderTasks(tasks);
 
-// put your code here
-
-const taskInput = document.querySelector(".task-input");
-const addTaskBtn = document.querySelector(".create-task-btn");
-const checkbox = document.querySelectorAll(".list__item-checkbox");
-
-const [...arrayChekBox] = checkbox;
-
-const addTasksInArray = (elem) => {
-  if (elem.target.value === "") {
-    return;
-  }
-  tasks.push({ text: elem.target.value, done: false });
-  console.log(tasks);
-};
-
 const refreshList = () => {
   while (listElem.firstChild) {
     listElem.removeChild(listElem.firstChild);
@@ -58,10 +45,23 @@ const refreshList = () => {
   renderTasks(tasks);
 };
 
-if (localStorage.getItem("ListTodo")) {
-  tasks = JSON.parse(localStorage.getItem("ListTodo"));
+function updateTaskHandler(event) {
+  if (!event.target.classList.contains("list__item-checkbox")) {
+    return;
+  }
+  const id = event.target.dataset.id;
+
+  tasks.forEach((item) => {
+    if (item.id === +id) {
+      // eslint-disable-next-line no-param-reassign
+      item.done = !item.done;
+    }
+  });
+  console.log(tasks);
   refreshList();
 }
+
+listElem.addEventListener("click", updateTaskHandler);
 
 const addNewTask = () => {
   if (taskInput.value === "") {
@@ -72,27 +72,9 @@ const addNewTask = () => {
     done: false,
   };
   tasks.unshift(newTodo);
+  newTodo.id = tasks.length;
   localStorage.setItem("ListTodo", JSON.stringify(tasks));
   refreshList();
 };
 
 addTaskBtn.addEventListener("click", addNewTask);
-
-const markAsDone = (event) => {
-  const checkId = event.target.getAttribute("data-id");
-  const textListItem = document
-    .querySelector('[data-id="' + checkId + '"]')
-    .closest(".list__item").textContent;
-
-  tasks.forEach((item) => {
-    if (item.text === textListItem) {
-      // eslint-disable-next-line no-param-reassign
-      item.done = !item.done;
-      localStorage.setItem("ListTodo", JSON.stringify(tasks));
-    }
-  });
-
-  refreshList();
-};
-
-listElem.addEventListener("change", markAsDone);
