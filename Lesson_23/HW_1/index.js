@@ -88,10 +88,13 @@ const markAsDone = (event) => {
 
   tasks.forEach((item) => {
     if (item.text === textListItem) {
+      // eslint-disable-next-line no-param-reassign
       item.done = !item.done;
       localStorage.setItem("ListTodo", JSON.stringify(tasks));
+      console.log(item);
     }
   });
+  console.log(tasks);
   clearList();
 };
 
