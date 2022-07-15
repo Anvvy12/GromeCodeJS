@@ -18,7 +18,7 @@ const renderTasks = (tasksList) => {
       listItemElem.classList.add("list__item");
       const checkbox = document.createElement("input");
       checkbox.setAttribute("type", "checkbox");
-      tasks.id = id;
+      checkbox.setAttribute("data-id", `${(Id += 1)}`);
       checkbox.checked = done;
       checkbox.classList.add("list__item-checkbox");
       if (done) {
@@ -41,6 +41,7 @@ const addTaskBtn = document.querySelector(".create-task-btn");
 const checkbox = document.querySelectorAll(".list__item-checkbox");
 
 const [...arrayChekBox] = checkbox;
+console.log(arrayChekBox);
 
 const addTasksInArray = (elem) => {
   if (elem.target.value === "") {
@@ -79,28 +80,19 @@ const addNewTask = () => {
 addTaskBtn.addEventListener("click", addNewTask);
 
 const markAsDone = (event) => {
-  const alistItem = event.target;
-  const taskText = alistItem.closest(".list__item").textContent;
-  console.log(taskText);
+  const checkId = event.target.getAttribute("data-id");
+  console.log(checkId);
+  const textListItem = document
+    .querySelector('[data-id="' + checkId + '"]')
+    .closest(".list__item").textContent;
+
   tasks.forEach((item) => {
-    if (item.text === taskText) {
+    if (item.text === textListItem) {
       item.done = !item.done;
       localStorage.setItem("ListTodo", JSON.stringify(tasks));
     }
-    clearList();
   });
-  // const checkId = event.target.getAttribute("id");
-  // const textListItem = document
-  //   .getElementById(`${checkId}`)
-  //   .closest(".list__item").textContent;
-
-  // tasks.forEach((item) => {
-  //   if (item.text === textListItem) {
-  //     item.done = !item.done;
-  //     localStorage.setItem("ListTodo", JSON.stringify(tasks));
-  //   }
-  // });
-  // clearList();
+  clearList();
 };
 
 listElem.addEventListener("change", markAsDone);
