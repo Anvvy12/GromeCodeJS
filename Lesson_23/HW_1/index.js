@@ -47,7 +47,7 @@ const addTasksInArray = (elem) => {
   if (elem.target.value === "") {
     return;
   }
-  tasks.unshift({ text: elem.target.value, done: false });
+  tasks.push({ text: elem.target.value, done: false });
   console.log(tasks);
 };
 
