@@ -41,7 +41,6 @@ const addTaskBtn = document.querySelector(".create-task-btn");
 const checkbox = document.querySelectorAll(".list__item-checkbox");
 
 const [...arrayChekBox] = checkbox;
-console.log(arrayChekBox);
 
 const addTasksInArray = (elem) => {
   if (elem.target.value === "") {
@@ -51,16 +50,17 @@ const addTasksInArray = (elem) => {
   console.log(tasks);
 };
 
-const clearList = () => {
+const refreshList = () => {
   while (listElem.firstChild) {
     listElem.removeChild(listElem.firstChild);
   }
+  taskInput.value = "";
   renderTasks(tasks);
 };
 
 if (localStorage.getItem("ListTodo")) {
   tasks = JSON.parse(localStorage.getItem("ListTodo"));
-  clearList();
+  refreshList();
 }
 
 const addNewTask = () => {
@@ -73,15 +73,13 @@ const addNewTask = () => {
   };
   tasks.unshift(newTodo);
   localStorage.setItem("ListTodo", JSON.stringify(tasks));
-  taskInput.value = "";
-  clearList();
+  refreshList();
 };
 
 addTaskBtn.addEventListener("click", addNewTask);
 
 const markAsDone = (event) => {
   const checkId = event.target.getAttribute("data-id");
-  console.log(checkId);
   const textListItem = document
     .querySelector('[data-id="' + checkId + '"]')
     .closest(".list__item").textContent;
@@ -91,12 +89,10 @@ const markAsDone = (event) => {
       // eslint-disable-next-line no-param-reassign
       item.done = !item.done;
       localStorage.setItem("ListTodo", JSON.stringify(tasks));
-      console.log(item);
     }
   });
 
-  clearList();
-  console.log(tasks);
+  refreshList();
 };
 
 listElem.addEventListener("change", markAsDone);
