@@ -73,6 +73,7 @@ const addNewTask = () => {
   };
   tasks.unshift(newTodo);
   localStorage.setItem("ListTodo", JSON.stringify(tasks));
+  taskInput.value = "";
   clearList();
 };
 
