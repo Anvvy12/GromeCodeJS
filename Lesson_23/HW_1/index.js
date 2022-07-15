@@ -94,8 +94,9 @@ const markAsDone = (event) => {
       console.log(item);
     }
   });
-  console.log(tasks);
+
   clearList();
+  console.log(tasks);
 };
 
 listElem.addEventListener("change", markAsDone);
