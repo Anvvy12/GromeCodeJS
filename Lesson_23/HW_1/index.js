@@ -8,6 +8,7 @@ let tasks = [
 
 const listElem = document.querySelector(".list");
 const listItemElem = document.createElement("li");
+let Id = 0;
 
 const renderTasks = (tasksList) => {
   const tasksElems = tasksList
@@ -17,7 +18,7 @@ const renderTasks = (tasksList) => {
       listItemElem.classList.add("list__item");
       const checkbox = document.createElement("input");
       checkbox.setAttribute("type", "checkbox");
-      checkbox.setAttribute("id", `${index}`);
+      checkbox.setAttribute("id", `${(Id += 1)}`);
       checkbox.checked = done;
       checkbox.classList.add("list__item-checkbox");
       if (done) {
@@ -72,24 +73,24 @@ const addNewTask = () => {
   };
   tasks.unshift(newTodo);
   localStorage.setItem("ListTodo", JSON.stringify(tasks));
-  console.log(tasks);
   clearList();
 };
 
 addTaskBtn.addEventListener("click", addNewTask);
 
-listElem.addEventListener("change", (event) => {
+const markAsDone = (event) => {
   const checkId = event.target.getAttribute("id");
   const textListItem = document
     .getElementById(`${checkId}`)
     .closest(".list__item").textContent;
-  console.log(textListItem);
 
   tasks.forEach((item) => {
     if (item.text === textListItem) {
       item.done = !item.done;
       localStorage.setItem("ListTodo", JSON.stringify(tasks));
     }
-    clearList();
   });
-});
+  clearList();
+};
+
+listElem.addEventListener("change", markAsDone);
