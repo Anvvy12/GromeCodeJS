@@ -1,6 +1,6 @@
 export const getDiff = (startDate, endDate) => {
   console.log(startDate - endDate);
-  const dateDif = (startDate - endDate) / 1000;
+  const dateDif = Math.abs((startDate - endDate) / 1000);
   console.log(dateDif);
 
   const day = Math.trunc(dateDif / 60 / 60 / 24);
