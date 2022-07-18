@@ -1,4 +1,4 @@
-function getDiff(startDate, endDate) {
+export function getDiff(startDate, endDate) {
   const dateDif = (startDate - endDate) / 1000;
   const day = Math.round(dateDif / 60 / 60 / 24);
   const hour = Math.round((dateDif / 60 / 60) % 24);
