@@ -1,4 +1,4 @@
-export function getDiff(startDate, endDate) {
+export const getDiff = (startDate, endDate) => {
   const dateDif = (endDate - startDate) / 1000;
 
   const day = Math.floor(dateDif / 60 / 60 / 24);
@@ -6,7 +6,7 @@ export function getDiff(startDate, endDate) {
   const minute = Math.floor((dateDif / 60) % 60);
   const second = Math.floor(dateDif % 60);
   return day + "d " + hour + "h " + minute + "m " + second + "s";
-}
+};
 
 const date1 = new Date("September 1 2011 13:13");
 const date2 = new Date("September 14 2011 13:12");
