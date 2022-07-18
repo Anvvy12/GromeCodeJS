@@ -1,37 +1,18 @@
-export const getDiff = (startDate, endDate) => {
-  const dateDif = Math.abs(endDate.getTime() - startDate.getTime()) / 1000;
+function timer(endTime) {
+  let delta = Math.floor((endTime - new Date()) / 1000);
+  const days = Math.floor(delta / 86400);
+  delta -= days * 86400;
+  const hours = Math.floor(delta / 3600) % 24;
+  delta -= hours * 3600;
+  const minutes = Math.floor(delta / 60) % 60;
+  delta -= minutes * 60;
+  const seconds = delta % 60;
+  const dateStr = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-  const day = Math.ceil(dateDif / 60 / 60 / 24);
-  const hour = Math.ceil((dateDif / 60 / 60) % 24);
-  const minute = Math.ceil((dateDif / 60) % 60);
-  const second = Math.ceil(dateDif % 60);
-  return day + "d " + hour + "h " + minute + "m " + second + "s";
-};
+  return dateStr;
+}
 
-const date1 = new Date("September 1 2011 13:13");
-const date2 = new Date("September 14 2011 13:12");
+const endTime = new Date("2017-12-31T23:59:59.999");
 
-const res = getDiff(date1, date2);
-console.log(res);
-
-// =========================
-
-// export function getDiff(date1, date2) {
-//   let diff = (date2 - date1) / 1000;
-//   diff = Math.abs(Math.floor(diff));
-
-//   const days = Math.floor(diff / (24 * 60 * 60));
-//   let leftSec = diff - days * 24 * 60 * 60;
-
-//   const hrs = Math.floor(leftSec / (60 * 60));
-//   leftSec -= hrs * 60 * 60;
-
-//   const min = Math.floor(leftSec / 60);
-//   leftSec -= min * 60;
-
-//   return days + "d " + hrs + "h " + min + "m " + leftSec + "s";
-// }
-
-// const date1 = new Date();
-// const date2 = new Date("2015/07/30 21:59:00");
-// console.log(getDiff(date1, date2));
+const r = timer(endTime);
+console.log(r);
