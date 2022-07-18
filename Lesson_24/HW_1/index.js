@@ -1,5 +1,5 @@
 export const getDiff = (startDate, endDate) => {
-  const dateDif = (endDate.getTime() - startDate.getTime()) / 1000;
+  const dateDif = Math.abs(endDate.getTime() - startDate.getTime()) / 1000;
 
   const day = Math.ceil(dateDif / 60 / 60 / 24);
   const hour = Math.ceil((dateDif / 60 / 60) % 24);
