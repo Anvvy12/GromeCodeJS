@@ -8,8 +8,8 @@ export const getDiff = (startDate, endDate) => {
   return day + "d " + hour + "h " + minute + "m " + second + "s";
 };
 
-const date1 = new Date("September 1 2011 13:13");
-const date2 = new Date("September 14 2011 13:12");
+// const date1 = new Date("September 1 2011 13:13");
+// const date2 = new Date("September 14 2011 13:12");
 
-const res = getDiff(date1, date2);
-console.log(res);
+// const res = getDiff(date1, date2);
+// console.log(res);
