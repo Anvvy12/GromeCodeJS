@@ -5,7 +5,7 @@ export const getDiff = (startDate, endDate) => {
   const hour = Math.trunc((dateDif / 60 / 60) % 24);
   const minute = Math.trunc((dateDif / 60) % 60);
   const second = Math.trunc(dateDif % 60);
-  return `${day}d ${hour}h" ${minute}m ${second}s`;
+  return `${day}d ${hour}h ${minute}m ${second}s`;
 };
 
 // const date1 = new Date("September 1 2011 13:13");
