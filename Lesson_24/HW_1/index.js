@@ -3,10 +3,10 @@ export const getDiff = (startDate, endDate) => {
   const dateDif = (startDate - endDate) / 1000;
   console.log(dateDif);
 
-  const day = Math.floor(dateDif / 60 / 60 / 24);
-  const hour = Math.floor((dateDif / 60 / 60) % 24);
-  const minute = Math.floor((dateDif / 60) % 60);
-  const second = Math.floor(dateDif % 60);
+  const day = Math.trunc(dateDif / 60 / 60 / 24);
+  const hour = Math.trunc((dateDif / 60 / 60) % 24);
+  const minute = Math.trunc((dateDif / 60) % 60);
+  const second = Math.trunc(dateDif % 60);
   return `${day}d ${hour}h ${minute}m ${second}s`;
 };
 
