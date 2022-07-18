@@ -15,7 +15,7 @@ export function getDiff(startDate, endDate) {
     res = day + "d " + hour + "h " + minute + "m " + second + "s";
   }
 
-  return res;
+  return endDate - startDate;
 }
 
 const date1 = new Date("September 1 2011 13:13");
