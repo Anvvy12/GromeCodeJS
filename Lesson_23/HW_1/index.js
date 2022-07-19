@@ -1,4 +1,4 @@
-let tasks = [
+const tasks = [
   { id: 1, text: "Buy milk", done: false },
   { id: 2, text: "Pick up Tom from airport", done: false },
   { id: 3, text: "Visit party", done: false },
