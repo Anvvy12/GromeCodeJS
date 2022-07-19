@@ -7,8 +7,6 @@ const taskInput = document.querySelector(".task-input");
 const addTaskBtn = document.querySelector(".create-task-btn");
 const checkbox = document.querySelectorAll(".list__item-checkbox");
 
-const createElem = () => {};
-
 const renderTasks = (tasksList) => {
   const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
@@ -75,3 +73,11 @@ const addNewTask = () => {
 };
 
 addTaskBtn.addEventListener("click", addNewTask);
+
+const onStarageChange = (e) => {
+  if (e.key === "taskList") {
+    refreshList();
+  }
+};
+
+window.addEventListener("storage", onStarageChange);
