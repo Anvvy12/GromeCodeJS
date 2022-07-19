@@ -1,10 +1,10 @@
-import { getItem } from "./storage";
+import { getItem } from "./storage.js";
 
 const listElem = document.querySelector(".list");
 
 // eslint-disable-next-line consistent-return
 const compareTasks = (a, b) => {
-  if (a.done === b.done) {
+  if (a.done !== b.done) {
     return a.done - b.done;
   }
 };
