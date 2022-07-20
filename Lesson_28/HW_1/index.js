@@ -1,4 +1,4 @@
-const shmoment = (startDate) => {
+export const shmoment = (startDate) => {
   const inputDate = new Date(startDate);
 
   const options = {
