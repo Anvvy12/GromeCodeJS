@@ -1,5 +1,5 @@
-export const shmoment = (startDate) => {
-  const inputDate = startDate;
+const shmoment = (startDate) => {
+  const inputDate = new Date(startDate);
 
   const options = {
     add(type, number) {
@@ -71,9 +71,8 @@ export const shmoment = (startDate) => {
 };
 
 // trst data
-const res = shmoment(new Date("September, 11, 11"))
-  .add("days", 12)
-  .subtract("months", 4)
-  .result();
+const date = new Date("July, 17, 01");
+const res = shmoment(date).add("days", 12).subtract("months", 4).result();
 
 console.log(res);
+console.log(date);
