@@ -1,4 +1,4 @@
-const addImage = (imgSrc, callack) => {
+export const addImage = (imgSrc, callack) => {
   // put your code here
   const imgElem = document.createElement("img");
   imgElem.setAttribute("alt", "somePhoto");
