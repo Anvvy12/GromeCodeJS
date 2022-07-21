@@ -7,8 +7,7 @@ export function addImage(imgSrc, callback) {
   containerElem.append(imgElem);
 
   function onImageLoaded() {
-    const { width, height } = imgElem;
-    callback(null, { width, height });
+    callback(null, imgElem);
   }
 
   imgElem.addEventListener("load", onImageLoaded);
@@ -26,6 +25,6 @@ function onImageLoaded(error, data) {
   sizeElem.textContent = `${width} x ${height}`;
 }
 
-// const imgLink =
-//   "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg";
-// addImage(imgLink, onImageLoaded);
+const imgLink =
+  "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg";
+addImage(imgLink, onImageLoaded);
