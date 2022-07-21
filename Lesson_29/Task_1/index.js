@@ -11,8 +11,8 @@ export function addImage(imgSrc, callback) {
     callback(null, { width, height });
   }
 
-  imgElem.addEventListener("load", callback(null, imgElem));
-  imgElem.addEventListener("error", callback("Image load is failed"));
+  imgElem.addEventListener("load", onImageLoaded);
+  imgElem.addEventListener("error", () => callback("Image load is failed"));
 }
 
 function onImageLoaded(error, data) {
@@ -26,6 +26,6 @@ function onImageLoaded(error, data) {
   sizeElem.textContent = `${width} x ${height}`;
 }
 
-// const imgLink =
-//   "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg";
-// addImage(imgLink, onImageLoaded);
+const imgLink =
+  "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg";
+addImage(imgLink, onImageLoaded);
