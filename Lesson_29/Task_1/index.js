@@ -8,10 +8,10 @@ export function addImage(imgSrc, callback) {
 
   function onImageLoaded() {
     const { width, height } = imgElem;
-    callback({ width, height });
+    callback(null, { width, height });
   }
 
-  imgElem.addEventListener("load", onImageLoaded);
+  imgElem.addEventListener("load", callback);
   imgElem.addEventListener("error", () => callback("Image load is failed"));
 }
 
