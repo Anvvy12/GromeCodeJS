@@ -25,6 +25,6 @@ function onImageLoaded(error, imgElem) {
   sizeElem.textContent = `${width} x ${height}`;
 }
 
-const imgLink =
-  "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg";
-addImage(imgLink, onImageLoaded);
+// const imgLink =
+//   "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg";
+// addImage(imgLink, onImageLoaded);
