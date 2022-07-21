@@ -11,7 +11,7 @@ export function addImage(imgSrc, callback) {
     callback(null, { width, height });
   }
 
-  imgElem.addEventListener("load", onImageLoaded);
+  imgElem.addEventListener("load", callback(null, imgElem));
   imgElem.addEventListener("error", callback("Image load is failed"));
 }
 
