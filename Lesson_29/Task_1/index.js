@@ -14,13 +14,13 @@ export function addImage(imgSrc, callback) {
   imgElem.addEventListener("error", () => callback("Image load is failed"));
 }
 
-function onImageLoaded(error, data) {
+function onImageLoaded(error, imgElem) {
   if (error) {
     console.log(error);
     return;
   }
 
-  const { width, height } = data;
+  const { width, height } = imgElem;
   const sizeElem = document.querySelector(".image-size");
   sizeElem.textContent = `${width} x ${height}`;
 }
