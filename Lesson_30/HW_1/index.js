@@ -37,5 +37,5 @@ userDataPromise.then(function onSuccess(userData) {
 
 userDataPromise.then(function onSuccess(userObj) {
   /* ...code here */
-  console.log(`My ${userObj.name}is Tom. I am ${userObj.age} years old`);
+  console.log(`My name is ${userObj.name}. I am ${userObj.age} years old`);
 });
