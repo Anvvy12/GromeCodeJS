@@ -1,4 +1,4 @@
-const pinger = (count, period) => {
+export const pinger = (count, period) => {
   // put your code here
   let i = count;
   console.log("Ping");
