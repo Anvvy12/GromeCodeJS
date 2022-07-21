@@ -8,7 +8,7 @@ export function addImage(imgSrc, callback) {
 
   function onImageLoaded() {
     const { width, height } = imgElem;
-    callback(null, { width, height });
+    callback({ width, height });
   }
 
   imgElem.addEventListener("load", onImageLoaded);
