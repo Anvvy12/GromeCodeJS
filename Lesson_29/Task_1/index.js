@@ -1,4 +1,4 @@
-export const addImage = (imgSrc, callack) => {
+export const addImage = (imgSrc, callback) => {
   // put your code here
   const imgElem = document.createElement("img");
   imgElem.setAttribute("alt", "My photo");
@@ -9,11 +9,11 @@ export const addImage = (imgSrc, callack) => {
   containerElem.append(imgElem);
 
   const onImageLoaded = () => {
-    callack(null, imgElem);
+    callback(null, imgElem);
   };
 
   imgElem.addEventListener("load", onImageLoaded);
-  imgElem.addEventListener("error", callack("Image load is failed"));
+  imgElem.addEventListener("error", callback("Image load is failed"));
 };
 
 // callack function
