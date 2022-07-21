@@ -9,12 +9,11 @@ export const addImage = (imgSrc, callack) => {
   containerElem.append(imgElem);
 
   const onImageLoaded = () => {
-    const { width, height } = imgElem;
-    callack(null, { width, height });
+    callack(null, imgElem);
   };
 
   imgElem.addEventListener("load", onImageLoaded);
-  imgElem.addEventListener("error", callack("Image load failed"));
+  imgElem.addEventListener("error", callack("Image load is failed"));
 };
 
 // callack function
@@ -24,9 +23,7 @@ const onImageLoaded = (error, data) => {
     return;
   }
   const { width, height } = data;
-
   const sizeElem = document.querySelector(".image-size");
-
   sizeElem.textContent = `${width} x ${height}`;
 };
 // examples;
