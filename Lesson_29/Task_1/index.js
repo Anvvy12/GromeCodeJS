@@ -12,15 +12,15 @@ export function addImage(imgSrc, callback) {
   }
 
   imgElem.addEventListener("load", onImageLoaded);
-  imgElem.addEventListener("error", callback("Image load failed"));
+  imgElem.addEventListener("error", () => callback("Image load failed"));
 }
 
-// callack function
 function onImageLoaded(error, data) {
   if (error) {
     console.log(error);
     return;
   }
+
   const { width, height } = data;
   const sizeElem = document.querySelector(".image-size");
   sizeElem.textContent = `${width} x ${height}`;
