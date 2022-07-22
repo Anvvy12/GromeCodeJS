@@ -16,7 +16,7 @@ const request = (url) =>
     }, randomeRelay);
   });
 
-const getUserASAP = (userId) => {
+export const getUserASAP = (userId) => {
   const userUrls = urlPull.map((serverUrl) => `${serverUrl}/user/${userId}`);
   const requests = userUrls.map((userUrl) => request(userUrl));
   return Promise.race(requests);
