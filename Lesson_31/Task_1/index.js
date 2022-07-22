@@ -24,5 +24,6 @@ export const requestUserData = (userId) => {
   return promise;
 };
 
-const res = requestUserData("broken");
-res.catch((error) => console.log(error)).then((date) => console.log(date));
+const res = requestUserData("userid777");
+res.catch((error) => console.log(error));
+res.then((date) => console.log(date));
