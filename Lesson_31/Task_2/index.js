@@ -2,8 +2,9 @@ const asyncCalculator = (number) =>
   new Promise((resolve) => {
     setTimeout(() => {
       console.log(`Initial value: ${number}`);
+
       resolve(number);
-    }, 500);
+    }, 1000);
   })
     .then(
       (data) =>
@@ -12,7 +13,7 @@ const asyncCalculator = (number) =>
             const res = data ** 2;
             console.log(`Squared value: ${res}`);
             resolve(res);
-          }, 500);
+          }, 1000);
         })
     )
     .then(
