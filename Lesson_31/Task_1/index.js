@@ -14,8 +14,8 @@ export const requestUserData = (userId) => {
         resolve({
           name: "John",
           age: 17,
-          userId: userId,
-          email: "userid777@example.com",
+          userId,
+          email: `${userId}@example.com`,
         });
       }, 1000);
     }
