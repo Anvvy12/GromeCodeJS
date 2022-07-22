@@ -5,16 +5,17 @@ const urlPull = [
 ];
 
 const getRandomNumber = (from, to) => {
-  const rand = from + Math.random() * (to + 1 - from);
-  return Math.floor(rand) * 1000;
+  const res = from + Math.random() * (to - from);
+  console.log(res);
+  return res;
 };
 const request = (url) =>
   new Promise((resolve, reject) => {
-    const randomeRelay = getRandomNumber(1, 3);
+    const randomeRelay = getRandomNumber(1000, 3000);
     setTimeout(() => {
       resolve({
-        userDate: { name: "Tom", age: 14 },
-        course: url,
+        userData: { name: "Tom", age: 17 },
+        source: url,
       });
     }, randomeRelay);
   });
