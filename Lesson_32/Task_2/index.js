@@ -4,10 +4,13 @@ const urlPull = [
   "https://server.com/au/userId",
 ];
 
-const getRandomNumber = (from, to) => from + Math.random() * (to - from);
+const getRandomNumber = (from, to) => {
+  const rand = from + Math.random() * (to + 1 - from);
+  return Math.floor(rand) * 1000;
+};
 const request = (url) =>
   new Promise((resolve, reject) => {
-    const randomeRelay = getRandomNumber(1000, 3000);
+    const randomeRelay = getRandomNumber(1, 3);
     setTimeout(() => {
       resolve({
         userDate: { name: "Tom", age: 14 },
