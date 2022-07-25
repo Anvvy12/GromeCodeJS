@@ -6,9 +6,10 @@ export function getTasksList() {
 }
 
 export function getTaskById(taskId) {
-  return fetch(baseUrl).then((date) => {
+  const resArr = fetch(baseUrl).then((date) => {
     date.json().filter((obj) => obj.id === taskId);
   });
+  return resArr[0];
 }
 
 // examples;
