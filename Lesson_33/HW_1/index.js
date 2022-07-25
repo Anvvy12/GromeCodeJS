@@ -7,12 +7,7 @@ export function getTasksList() {
 
 export function getTaskById(taskId) {
   return fetch(baseUrl).then((date) => {
-    date.json().forEach((obj) => {
-      if (obj.id === taskId) {
-        return obj;
-      }
-      return "caca";
-    });
+    date.json().filter((obj) => obj.id === taskId);
   });
 }
 
