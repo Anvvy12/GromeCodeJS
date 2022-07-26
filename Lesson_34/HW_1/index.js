@@ -27,7 +27,9 @@ export function createUser(userData) {
 
 export function deleteUser(userId) {
   // put your code here
-  return fetch(`https://62e0099c98dd9c9df60c8089.mockapi.io/users/${userId}`);
+  return fetch(`https://62e0099c98dd9c9df60c8089.mockapi.io/users/${userId}`, {
+    method: "DELETE",
+  });
 }
 
 export function updateUser(userId, userData) {
