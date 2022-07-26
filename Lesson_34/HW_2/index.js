@@ -15,11 +15,12 @@ const validate = () => {
 loginFormElem.addEventListener("input", validate);
 
 const postUserDate = () => {
-  const formData = [Object.fromEntries(new FormData(loginFormElem))].reduce(
+  const formData = [...new FormData(loginFormElem)].reduce(
     (acc, [input, value]) => Object.assign(acc, { [input]: value }),
     {}
   );
   console.log(formData);
+  alert(JSON.stringify(formData));
 
   fetch(url, {
     method: "POST",
@@ -28,12 +29,13 @@ const postUserDate = () => {
     },
     body: JSON.stringify(formData),
   })
-    .then((response) => response.json())
+    // .then((response) => response.json())
     .then((response) => {
       inputsArr.map((ele) => (ele.value = ""));
       submitBtn.disabled = true;
       alert(JSON.stringify(response));
-    });
+    })
+    .catch(new Error("s"));
 };
 
-submitBtn.addEventListener("submit", postUserDate);
+submitBtn.addEventListener("click", postUserDate);
