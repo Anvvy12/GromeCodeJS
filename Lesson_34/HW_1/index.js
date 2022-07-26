@@ -7,7 +7,7 @@ export function getUsersList() {
   );
 }
 
-function getUserById(userId) {
+export function getUserById(userId) {
   // put your code here
   return fetch(
     `https://62e0099c98dd9c9df60c8089.mockapi.io/users/${userId}`
