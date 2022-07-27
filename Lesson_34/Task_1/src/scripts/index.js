@@ -17,3 +17,7 @@ const onStorageChange = (e) => {
 };
 
 window.addEventListener("storage", onStorageChange);
+
+// 1 get data from server
+// 2 save data to front stogare
+//

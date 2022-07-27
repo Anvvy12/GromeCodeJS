@@ -23,3 +23,9 @@ export const onCreateTask = () => {
       renderTasks();
     });
 };
+
+// 1. prepare data
+// 2. write data to data base
+// 3. read new data from server
+// 4. save new data to front storage
+// 5. update UI dased on new data
