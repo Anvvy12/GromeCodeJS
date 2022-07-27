@@ -1,5 +1,4 @@
-const baseUrl =
-  "https://crudcrud.com/api/49dffa4295624360a73c57391a105b71/tasks";
+const baseUrl = "https://crudcrud.com/api/49dffa4295624360a73c57391a105b71";
 
 export const getTasksList = () => {
   return fetch(baseUrl).then((response) => {
@@ -8,7 +7,7 @@ export const getTasksList = () => {
 };
 
 export const createTasks = (taskData) => {
-  return fetch(baseUrl, {
+  return fetch(`${baseUrl}/tasks`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
