@@ -33,6 +33,7 @@ const postUserDate = () => {
     .then((response) => {
       submitBtn.disabled = true;
       alert(JSON.stringify(response));
+      loginFormElem.reset();
     })
     .catch(new Error("s"));
 };
