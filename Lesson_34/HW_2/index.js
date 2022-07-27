@@ -19,9 +19,6 @@ const postUserDate = () => {
     (acc, [input, value]) => Object.assign(acc, { [input]: value }),
     {}
   );
-  console.log(formData);
-  alert(JSON.stringify(formData));
-
   fetch(url, {
     method: "POST",
     headers: {
@@ -29,7 +26,7 @@ const postUserDate = () => {
     },
     body: JSON.stringify(formData),
   })
-    // .then((response) => response.json())
+    .then((response) => response.json())
     .then((response) => {
       submitBtn.disabled = true;
       alert(JSON.stringify(response));
