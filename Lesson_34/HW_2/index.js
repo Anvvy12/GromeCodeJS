@@ -31,7 +31,6 @@ const postUserDate = () => {
   })
     // .then((response) => response.json())
     .then((response) => {
-      inputsArr.map((ele) => (ele.value = ""));
       submitBtn.disabled = true;
       alert(JSON.stringify(response));
     })
