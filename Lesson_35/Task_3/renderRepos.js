@@ -8,5 +8,5 @@ export const renderRepos = (reposList) => {
     return listElem;
   });
 
-  listElem.append(...reposeListElem);
+  return listElem.append(...reposeListElem);
 };
