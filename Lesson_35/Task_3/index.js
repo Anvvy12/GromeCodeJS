@@ -23,7 +23,10 @@ const onSearchUser = () => {
       return userData.repos_url;
     })
     .then((url) => fetchRepositories(url))
-    .then((reposList) => renderRepos(reposList))
+    .then((reposList) => {
+      console.log(reposList);
+      renderRepos(reposList);
+    })
     .catch((err) => alert(err.message))
     .finally(() => {
       hideSpinner();

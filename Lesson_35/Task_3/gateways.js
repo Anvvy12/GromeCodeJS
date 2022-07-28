@@ -6,10 +6,11 @@ export const fetchUserData = (userName) => {
     throw new Error("Failed to load data");
   });
 };
-export const fetchRepositories = (url) =>
-  fetch(url).then((response) => {
+export const fetchRepositories = (url) => {
+  return fetch(url).then((response) => {
     if (response.ok) {
       return response.json();
     }
     throw new Error("Failed to load data");
   });
+};
