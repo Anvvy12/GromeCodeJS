@@ -1,6 +1,6 @@
 import { fetchUserData, fetchRepositories } from "./gateways.js";
 import { renderUserData } from "./user.js";
-import { renderRepos } from "./renderRepos.js";
+import { renderRepos, clearList } from "./renderRepos.js";
 import { showSpinner, hideSpinner } from "./spinner.js";
 
 const dafaultUser = {
@@ -13,9 +13,11 @@ renderUserData(dafaultUser);
 
 const showUserBtnElem = document.querySelector(".name-form__btn");
 const userNameInputElem = document.querySelector(".name-form__input");
+const listElem = document.querySelector(".repo-list");
 
 const onSearchUser = () => {
   showSpinner();
+  clearList();
   const userName = userNameInputElem.value;
   fetchUserData(userName)
     .then((userData) => {
@@ -24,7 +26,6 @@ const onSearchUser = () => {
     })
     .then((url) => fetchRepositories(url))
     .then((reposList) => {
-      console.log(reposList);
       renderRepos(reposList);
     })
     .catch((err) => alert(err.message))
