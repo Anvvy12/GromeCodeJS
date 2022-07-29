@@ -1,6 +1,6 @@
 const jsonString = '{"name": "Ben", "age": 24}';
 
-const parseUser = (string) => {
+export const parseUser = (string) => {
   try {
     return JSON.parse(string);
   } catch (err) {
