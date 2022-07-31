@@ -1,8 +1,8 @@
 const url = "https://api.github.com/users";
 
 export const getUsersBlogs = (users) => {
-  const res = users.map((user) => {
-    return fetch(`${url}/${user}`)
+  const res = users.map(async (user) => {
+    return await fetch(`${url}/${user}`)
       .then((userData) => userData.json())
       .then((user) => user.blog);
   });
