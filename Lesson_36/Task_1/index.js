@@ -9,10 +9,8 @@ export const fetchUser = async (userId) => {
     }
 
     const userdata = await response.json();
-    console.log(userdata);
     return userdata;
   } catch (e) {
     throw new Error("Failed to get user data");
   }
 };
-fetchUser("Anvvy12");
