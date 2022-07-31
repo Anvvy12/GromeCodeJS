@@ -1,17 +1,15 @@
 const url = "https://api.github.com/users";
 
 export const getUsersBlogs = async (users) => {
-  // put your code here
-  const array = users.map(async (element) => {
-    return await fetch(`${url}/${element}`);
+  const res = users.map((user) => {
+    return fetch(`${url}/${user}`)
+      .then((userData) => userData.json())
+      .then((user) => user.blog);
   });
-  console.log(array);
-  return array;
-  //   const userData = await fetch(`${url}/${users}`);
-  //   console.log(userData);
+  return res;
 };
 
-// // examples
+// examples
 // getUsersBlogs(["google", "facebook", "reactjs"]).then((linksList) =>
 //   console.log(linksList)
 // ); // ==> ["https://opensource.google/", "https://opensource.fb.com", "https://reactjs.org"]
