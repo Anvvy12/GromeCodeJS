@@ -1,6 +1,6 @@
 const url = "https://api.github.com/users";
 
-const fetchUser = async (userId) => {
+export const fetchUser = async (userId) => {
   // put your code here
   try {
     const response = await fetch(`${url}/${userId}`);
