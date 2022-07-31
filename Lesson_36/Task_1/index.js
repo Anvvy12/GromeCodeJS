@@ -13,7 +13,6 @@ export const fetchUser = async (userId) => {
     return userdata;
   } catch (e) {
     throw new Error("Failed to get user data");
-    console.log("Failed to get user data");
   }
 };
 fetchUser("Anvvy12");
