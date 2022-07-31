@@ -1,12 +1,17 @@
 const url = "https://api.github.com/users";
 
+const fetchUser = async (user) => {
+  const usersValue = await fetch(`https://api.github.com/users/${user}`);
+  return usersValue.ok ? usersValue.json() : null;
+};
+
 export const getUsersBlogs = (users) => {
-  const res = users.map(async (user) => {
-    return await fetch(`${url}/${user}`)
-      .then((userData) => userData.json())
-      .then((user) => user.blog);
-  });
-  return res;
+  const blogsArray = Promise.all(
+    users.map((elem) => {
+      return fetchUser(elem).then((user) => user.blog);
+    })
+  );
+  return blogsArray;
 };
 
 // examples
