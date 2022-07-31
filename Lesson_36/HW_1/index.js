@@ -1,6 +1,6 @@
 const url = "https://api.github.com/users";
 
-const getUsersBlogs = async (users) => {
+export const getUsersBlogs = async (users) => {
   // put your code here
   const array = users.map(async (element) => {
     return await fetch(`${url}/${element}`);
